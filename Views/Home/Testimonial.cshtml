@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Testimonial";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Testimonial</h2>
+                    <ul class="bread-list">
+                        <li><a href="/home/index">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li class="active">Testimonial</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Testimonial Start -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                <h2>What Our Patients Say About Us</h2>
+                <img src="~/Content/img/section-img.png" alt="#">
+                <p>Hear from real patients who have experienced our commitment to care. Their stories reflect our mission to heal, support, and go the extra mile in every journey toward better health.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (ViewBag.table.Rows.Count > 0)
+        {
+            foreach (var row in ViewBag.table.Rows)
+            {
+                <div class="col-sm-6">
+                    <div class="card m-1 p-2" style="min-height: 130px;">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin: auto;">
+                                <img class="rounded-2" src="~/Content/img/patient/@row["Pt_Profile"]" width="200"/>
+                            </div>
+                            <div class="col-sm-9 my-1">
+                                <p class="fs-6 my-1"><span class="fs-4 fw-bold">@row["Name"]</span> From @row["Address"]</p>
+                                <p>@row["Message"]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<!-- Testimonial End -->

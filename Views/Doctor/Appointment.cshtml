@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Appointment";
+    Layout = "~/Views/Shared/Doctor_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Appointments</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table">
+                        <thead>
+                            <tr>
+                                <th>App ID</th>
+                                <th>Patient</th>
+                                <th>Phone</th>
+                                <th>Reason</th>
+                                <th>App Date</th>
+                                <th>App Time</th>
+                                <th>Status</th>
+                                <th>Submitted At</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+                                    <tr>
+                                        <td>AP#@row["Ap_Id"]</td>
+                                        <td><img width="28" height="32" src="~/Content/img/patient/@row[21]" class="rounded-circle m-r-5" alt=""> @row["Name"]</td>
+                                        <td>@row["Phone"]</td>
+                                        <td>@row["Reason"]</td>
+                                        <td>@row["App_Date"]</td>
+                                        <td>@row["App_Time"]</td>
+                                        <td>
+                                            <a href="/doctor/updatestatus?Ap_Id=@(Convert.ToInt32(row["Ap_Id"]))&Status=@row["Status"]">
+                                                <span class="custom-badge fa-2x status-badge" data-status="@row["Status"]">@row["Status"]</span>
+                                            </a>
+                                        </td>
+                                        <td>@row["Submitted_At"]</td>
+                                        <td>
+                                            <div class="mt-1"><a href="/doctor/deleteapp?Ap_Id=@row["Ap_Id"]"> <button class="btn bg-danger px-3"><i class="fa fa-trash-o m-r-5"></i> DELETE</button> </a></div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("navappointment").classList.add("active");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusBadges = document.querySelectorAll(".status-badge");
+        statusBadges.forEach(badge => {
+            const status = badge.dataset.status.toLowerCase();
+
+            // Add class based on status value
+            if (status === "approved") {
+                badge.classList.add("badge-success");
+            } else if (status === "pending") {
+                badge.classList.add("badge-warning");
+            } else if (status === "completed") {
+                badge.classList.add("badge-secondary");
+            }
+        });
+    });
+
+</script>
+

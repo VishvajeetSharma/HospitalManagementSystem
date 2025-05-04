@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "labAppointment";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Appointments</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-border table-striped custom-table datatable mb-0">
+                        <thead>
+                            <tr>
+                                <th>Test ID</th>
+                                <th>Patient</th>
+                                <th>Phone</th>
+                                <th>Test Name</th>
+                                <th>App Date</th>
+                                <th>App Time</th>
+                                <th>Status</th>
+                                <th>Submitted At</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+                                    <tr>
+                                        <td>T##@row["T_Id"]</td>
+                                        <td><img width="28" height="32" src="~/Content/img/patient/@row["Pt_Profile"]" class="rounded-circle m-r-5" alt=""> @row["Name"]</td>
+                                        <td>@row["Phone"]</td>
+                                        <td>@row["ServiceName"]</td>
+                                        <td>@row["T_Date"]</td>
+                                        <td>@row["T_Time"]</td>
+                                        <td>
+                                            <a href="/admin/updatelabstatus?T_Id=@(Convert.ToInt32(row["T_Id"]))&Status=@row["Status"]">
+                                                <span class="custom-badge fa-2x status-badge" data-status="@row["Status"]">@row["Status"]</span>
+                                            </a>
+                                        </td>
+                                        <td>@row["Submitted_At"]</td>
+                                        <td class="text-right">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="~/Content/testreport/@row["Test_Report"]" target="_blank"><i class="fa fa-file m-r-5"></i> Show Report</a>
+                                                    <a class="dropdown-item" href="/admin/deletelabapp?T_Id=@row["T_Id"]"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("navlabappointment").classList.add("active");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusBadges = document.querySelectorAll(".status-badge");
+        statusBadges.forEach(badge => {
+            const status = badge.dataset.status.toLowerCase();
+
+            // Add class based on status value
+            if (status === "approved") {
+                badge.classList.add("badge-success");
+            } else if (status === "pending") {
+                badge.classList.add("badge-warning");
+            } else if (status === "completed") {
+                badge.classList.add("badge-secondary");
+            }
+        });
+    });
+
+
+
+
+
+</script>
+

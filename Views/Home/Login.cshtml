@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Favicon -->
+    <link rel="icon" href="~/Content/img/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .txt {
+            color: aliceblue;
+            font-weight: bold;
+            line-height: 35px;
+            text-decoration: 2px solid underline;
+        }
+
+        .iptxt {
+            height: 50px;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: transparent;
+            border: 3.5px groove rgb(0, 0, 0);
+            border-radius: 25px;
+            padding-left: 20px;
+            box-shadow: 5px 10px 10px -3px rgb(0,0, 0);
+        }
+
+        #main {
+            height: 770px;
+            width: 100%;
+            background-image: url('../../Content/img/loginbg.jpg');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            padding: 0px 280px;
+        }
+
+        #form {
+            height: 550px;
+            width: 400px;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgb(5, 5, 5);
+            border-radius: 25px;
+            padding: 15px 50px;
+        }
+
+            #form h2 {
+                width: 100px;
+                text-align: center;
+                margin: 0 auto;
+                font-size: 32px;
+                color: #1a76d1;
+            }
+
+        ::placeholder {
+            color: aliceblue;
+            font-size: 14px;
+        }
+
+        #btn {
+            height: 40px;
+            width: 200px;
+            font-size: 14px;
+            margin: 20px 50px;
+            color: black;
+            background-color: #1a76d1;
+            transition: ease all 0.2s;
+        }
+
+            #btn:hover {
+                background-color: black;
+                color: #fff;
+            }
+
+        #form a {
+            color: blue;
+            text-decoration: none;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="form" class="txt">
+            <img src="~/Content/img/logo.png" height="50" width="270">
+            <h2>Login</h2>
+            <form method="post" action="/home/signin">
+                <label for="utype">User Type:-</label><br>
+                <select class="iptxt" name="utype" required>
+                    <option value="">---Select User Type---</option>
+                    <option value="Patient">Patient</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Laboratorian">Laboratorian</option>
+                </select>
+
+                <label for="userid">UserId:-<span class="text-danger">*</span></label><br>
+                <input class="iptxt" type="email" name="userid" placeholder="Enter Your EmailId as UserId..." required>
+
+                <label for="pwd">Password:-<span class="text-danger">*</span></label><br>
+                <input class="iptxt" type="password" name="pwd" placeholder="Enter Your Password..." required>
+
+                <input id="btn" type="submit" value="Login">
+            </form>
+
+            <b>Don't have an account then,</b>
+            <a href="#">Register Now</a>
+        </div>
+    </div>
+</body>
+</html>

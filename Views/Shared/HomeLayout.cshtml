@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Favicon -->
+    <link rel="icon" href="~/Content/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <link href="~/Content/css/main.css" rel="stylesheet" />
+
+    <link href="~/Content/css/all.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/icofont.css">
+    <link rel="stylesheet" href="~/Content/css/slicknav.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl-carousel.css">
+    <link rel="stylesheet" href="~/Content/css/datepicker.css">
+    <link rel="stylesheet" href="~/Content/css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Content/css/normalize.css">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+
+</head>
+<body>
+    <div>
+
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+
+                <div class="indicator">
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+        <!-- Header Area -->
+        <header class="header">
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-5 col-12">
+                            <p class="font-weight-bold">"Welcome to MediPlus Hospital - Your Partner in Health and Heading."</p>
+                        </div>
+                        <div class="col-lg-6 col-md-7 col-12">
+                            <!-- Top Contact -->
+                            <ul class="top-contact">
+                                <li><i class="fa fa-phone"></i>+91 1234567890</li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:mediplus@gmail.com">mediplus@gmail.com</a></li>
+                            </ul>
+                            <!-- End Top Contact -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Topbar -->
+            <!-- Header Inner -->
+            <div class="header-inner">
+                <div class="container">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-12">
+                                <!-- Start Logo -->
+                                <div class="logo align-items-center">
+                                    <a href="/home/index"><img src="~/Content/img/logo.png" alt="Logo"></a>
+                                </div>
+                                <!-- End Logo -->
+                            </div>
+                            <div class="col-lg-9 col-md-10 col-12">
+                                <!-- Main Menu -->
+                                <div class="main-menu">
+                                    <nav class="navigation">
+                                        <ul class="nav menu">
+                                            <li><a href="/home/index">Home </a></li>
+                                            <li><a href="/home/about">AboutUs</a></li>
+                                            <li><a href="/home/doctors">Doctors </a></li>
+                                            <li><a href="/home/services">Services </a></li>
+                                            <li><a href="/home/testimonial">Testimonial</a></li>
+                                            <li><a href="/home/contact">ContactUs</a></li>
+                                            <li><a href="/home/registration">Registration</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!--/ End Main Menu -->
+                            </div>
+                            <div class="col-lg-1 col-12">
+                                <div class="get-quote">
+                                    <div class="dropdown">
+                                        <a class="btn btn-secondary" href="/home/login" role="button">
+                                            Login
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Header Inner -->
+        </header>
+        <!-- End Header Area -->
+
+
+
+        @RenderBody()
+
+
+
+        <!-- Footer Area -->
+        <footer id="footer" class="footer ">
+            <!-- Footer Top -->
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <div class="single-footer">
+                                <h2>About Us</h2>
+                                <p>We are dedicated to providing high-quality, compassionate medical care using advance technology and expert staff, ansuring every patient recives trusted and personalized healthcare.</p><br />
+                                <address class="text-white">
+                                    Lakshmipur Brigade Road, Lucknow <br />
+                                    Uttar Pradesh 226000
+                                </address>
+                                <!-- Social -->
+                                <ul class="social">
+                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                    <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                    <li><a href="#"><i class="icofont-youtube"></i></a></li>
+                                </ul>
+                                <!-- End Social -->
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="single-footer f-link">
+                                <h2>Quick Links</h2>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <ul>
+                                            <li><a href="/home/index"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+                                            <li><a href="/home/about"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+                                            <li><a href="/home/services"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
+                                            <li><a href="/home/contact"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+                                            <li><a href="/home/doctors"><i class="fa fa-caret-right" aria-hidden="true"></i>Doctors</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <ul>
+                                            <li><a href="/home/testimonial"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Admin Login</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Doctor Login</a></li>
+                                            @*<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Laboratorian Login</a></li>*@
+                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Patient Login</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="single-footer">
+                                <h2>Open Hours</h2>
+                                <p>We're here to care for you throughout the week. Check our open hours below and plan your visit forb hassle-free medical support.</p>
+                                <ul class="time-sidual">
+                                    <li class="day">Monday - Friday <span>8.00-22.00</span></li>
+                                    <li class="day">Saturday <span>9.00-19.00</span></li>
+                                    <li class="day">Sunday <span>9.00-15.00</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Footer Top -->
+            <!-- Copyright -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="copyright-content">
+                                <p>Developed By: Group Six </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Copyright -->
+        </footer>
+        <!--/ End Footer Area -->
+        <!-- jquery Min JS -->
+        <script src="~/content/js/jquery.min.js"></script>
+        <!-- jquery Migrate JS -->
+        <script src="~/content/js/jquery-migrate-3.0.0.js"></script>
+        <!-- jquery Ui JS -->
+        <script src="~/content/js/jquery-ui.min.js"></script>
+        <!-- Easing JS -->
+        <script src="~/content/js/easing.js"></script>
+        <!-- Color JS -->
+        <script src="~/content/js/colors.js"></script>
+        <!-- Popper JS -->
+        <script src="~/content/js/popper.min.js"></script>
+        <!-- Bootstrap Datepicker JS -->
+        <script src="~/content/js/bootstrap-datepicker.js"></script>
+        <!-- Jquery Nav JS -->
+        <script src="~/content/js/jquery.nav.js"></script>
+        <!-- Slicknav JS -->
+        <script src="~/content/js/slicknav.min.js"></script>
+        <!-- ScrollUp JS -->
+        <script src="~/content/js/jquery.scrollUp.min.js"></script>
+        <!-- Niceselect JS -->
+        <script src="~/content/js/niceselect.js"></script>
+        <!-- Tilt Jquery JS -->
+        <script src="~/content/js/tilt.jquery.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="~/content/js/owl-carousel.js"></script>
+        <!-- counterup JS -->
+        <script src="~/content/js/jquery.counterup.min.js"></script>
+        <!-- Steller JS -->
+        <script src="~/content/js/steller.js"></script>
+        <!-- Wow JS -->
+        <script src="~/content/js/wow.min.js"></script>
+        <!-- Magnific Popup JS -->
+        <script src="~/content/js/jquery.magnific-popup.min.js"></script>
+        <!-- Counter Up CDN JS -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="~/content/js/bootstrap.min.js"></script>
+        <!-- Bootstrap Bundle JS-->
+        <script src="~/Content/js/bootstrap.bundle.min.js"></script>
+        <!-- Main JS -->
+        <script src="~/content/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

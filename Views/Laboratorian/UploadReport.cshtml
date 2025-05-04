@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "UploadReport";
+    Layout = "~/Views/Shared/Laboratorian_Layout.cshtml";
+}
+
+
+<div class="container-fluid pt-5">
+    <div class="row m-5">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded">
+            <form action="/laboratorian/savereport" method="post"enctype="multipart/form-data">
+                <div class="mb-3">
+                    @if (ViewBag.table.Rows.Count > 0)
+                    {
+                        foreach (var row in ViewBag.table.Rows)
+                        {
+                            <input type="hidden" class="form-control" value="@row["T_Id"]" name="T_id" readonly />
+                            <div class="row mx-3 mt-1">
+                                <p class="staff-id fs-2">Test ID: T##@row["T_Id"]</p>
+                            </div>
+                        }
+                    }
+                    <label for="testreport" class="form-label">Upload Report:</label>
+                    <input type="file" class="form-control" name="testreport" required placeholder="Upload Test Report" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("navappointment").classList.add("active");
+</script>

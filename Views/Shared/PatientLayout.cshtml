@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/Content/img/favicon.png">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/content/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/content/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/content/css/adminstyle.css">
+    <link href="~/Content/css/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    @if (Session["Email"] == null)
+    {
+        <script>
+            alert('Please login');
+            location.href = '/home/Login';
+        </script>
+    }
+
+
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="/patient/dashboard" class="logo">
+                    <img src="~/Content/img/favicon.png" width="35" height="35" alt=""> <span style="color: var(--light); font-weight: bold;">MediPlus</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+                            <img class="rounded-circle" src="~/Content/img/user.jpg" width="24" alt="Patient">
+                            <span class="status online"></span>
+                        </span>
+                        <span>Patient</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        @*<a class="dropdown-item" href="profile.html">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>*@
+                        <a class="dropdown-item" href=/patient/logout>Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    @*<a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>*@
+                    <a class="dropdown-item" href="/patient/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        @*<li id="ptdashboard">
+                            <a href="/patient/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>*@
+                        <li id="ptprofile">
+                            <a href="/patient/patientprofile"><i class="fa fa-user"></i> <span>Profile</span></a>
+                        </li>
+                        <li id="ptdrapp">
+                            <a href="/patient/dappointment"><i class="fa fa-calendar"></i> <span>Appointments<br />With Doctor</span></a>
+                        </li>
+                        <li id="ptlapp">
+                            <a href="/patient/labappointment"><i class="fa fa-calendar"></i> <span>Appointments<br />for Lab Test</span></a>
+                        </li>
+                        @*<li id="ptreport">
+                            <a href="/patient/patientreport"><i class="fa fa-copy"></i> <span>Medical Report</span></a>
+                        </li>*@
+                        <li id="ptfeedback">
+                            <a href="/patient/feedback"><i class="fa fa-comment"></i> <span>Feedback</span></a>
+                        </li>
+                        <li>
+                            <a href="/patient/logout"><i class="fa fa-sign-out"></i> <span>LogOut</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+
+    <script src="~/Content/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/js/app.js"></script>
+
+
+    <script src="~/Content/js/select2.min.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/js/moment.min.js"></script>
+    <script src="~/Content/js/bootstrap-datetimepicker.min.js"></script>
+
+
+</body>
+</html>

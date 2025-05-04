@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Contact Us</h2>
+                    <ul class="bread-list">
+                        <li><a href="/home/index">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li class="active">Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Start Contact Us -->
+<section class="contact-us section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                <h2>We’re Here When You Need Us Most</h2>
+                <img src="~/Content/img/section-img.png" alt="#">
+                <p>Reach out to us for appointments, inquiries, or emergency support. Our team is available to assist you with prompt and friendly service, ensuring your concerns are heard and addressed.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="inner">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-us-left">
+                        <!--Start Google-map -->
+                        <div id="myMap">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.161301648797!2d80.96384467548143!3d26.898375476655733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39995785d5f7f1a5%3A0xffa47f1efe103f0d!2sTechpile%20Technology%20Pvt.%20Ltd.%20%7C%7C%20Internet%20website%20developers!5e0!3m2!1sen!2sin!4v1727151671469!5m2!1sen!2sin" style="height:100%; width:100%; border:10px;" allo wfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <!--/End Google-map -->
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-us-form">
+                        <h2>Contact With Us</h2>
+                        <p>If you have any questions please fell free to contact with us.</p>
+                        <!-- Form -->
+                        <form class="form" method="post" action="/home/savecontact">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="name" placeholder="Full Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Email" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="phone" placeholder="Phone" required maxlength="10">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="subject" placeholder="Subject" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Your Message" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group login-btn">
+                                        <button class="btn" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--/ End Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-info">
+            <div class="row">
+                <!-- single-info -->
+                <div class="col-lg-4 col-12 ">
+                    <div class="single-info">
+                        <i class="icofont icofont-ui-call"></i>
+                        <div class="content">
+                            <h3>+91 1234567890, <br />+91 0987654321</h3>
+                            <p>mediplus@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/End single-info -->
+                <!-- single-info -->
+                <div class="col-lg-4 col-12 ">
+                    <div class="single-info">
+                        <i class="icofont-google-map"></i>
+                        <div class="content">
+                            <h3>Lakshmipur Brigade Road, Lucknow</h3>
+                            <p>Uttar Pradesh 226000</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/End single-info -->
+                <!-- single-info -->
+                <div class="col-lg-4 col-12 ">
+                    <div class="single-info">
+                        <i class="icofont icofont-wall-clock"></i>
+                        <div class="content">
+                            <h3>24 X 7</h3>
+                            <p>See footer for more details.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/End single-info -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Contact Us -->

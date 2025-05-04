@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Appointment";
+    Layout = "~/Views/Shared/PatientLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Appointments With Doctor</h4>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+                <a href="/Patient/adddappointment" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Appointment</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table mb-0 datatable">
+                        <thead>
+                            <tr>
+                                <th>Appointment ID</th>
+                                <th>Doctor's Name</th>
+                                <th>Department</th>
+                                <th>Appointment Date</th>
+                                <th>Appointment Time</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                { 
+                                    <tr>
+                                        <td>APT##@row["Ap_Id"]</td>
+                                        <td>@row[10]</td>
+                                        <td>@row["DepName"]</td>
+                                        <td>@row["App_Date"]</td>
+                                        <td>@row["App_Time"]</td>
+                                        <td>@row["Reason"]</td>
+                                        <td>
+                                            <span class="custom-badge fa-2x status-badge" data-status="@row["Status"]">@row["Status"]</span>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("ptdrapp").classList.add("active");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusBadges = document.querySelectorAll(".status-badge");
+        statusBadges.forEach(badge => {
+            const status = badge.dataset.status.toLowerCase();
+
+            // Add class based on status value
+            if (status === "approved") {
+                badge.classList.add("badge-success");
+            } else if (status === "pending") {
+                badge.classList.add("badge-warning");
+            } else if (status === "completed") {
+                badge.classList.add("badge-secondary");
+            }
+        });
+    });
+
+</script>

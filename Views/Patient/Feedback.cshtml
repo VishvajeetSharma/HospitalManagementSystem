@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/PatientLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <h2>Feedback Form</h2>
+        <div class="col-md-10">
+            <div class="card-box">
+                <form method="post" action="/patient/savefeedback" enctype="multipart/form-data">
+                    <div class="form-group row">
+                        <label for="msg" class="col-md-3 col-form-label">Feedback Message:</label>
+                        <div class="col-md-9">
+                            <textarea name="msg" class="form-control" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary px-5" style="">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.getElementById("ptfeedback").classList.add("active");
+</script>

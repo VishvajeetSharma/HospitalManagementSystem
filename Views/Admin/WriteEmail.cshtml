@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "WriteEmail";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <h2>Write Reply</h2>
+        <div class="col-md-10">
+            <div class="card-box">
+                <form method="post" action="/admin/sendemail">
+                    <div class="form-group row">
+                        <label for="emailreply" class="col-md-3 col-form-label">Write Message:</label>
+                        <div class="col-md-9">
+                            <textarea name="emailreply" class="form-control" placeholder="Write Your Reply Message...." rows="3" required></textarea>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary px-5" style="">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("navdep").classList.add("active");
+</script>
+

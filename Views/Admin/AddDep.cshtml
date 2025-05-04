@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "AddDep";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <h2>Add Department</h2>
+        <div class="col-md-10">
+            <div class="card-box">
+                <form method="post" action="/admin/savedep">
+                    <div class="form-group row">
+                        <label for="depname" class="col-md-3 col-form-label">Department Name:</label>
+                        <div class="col-md-9">
+                            <input type="text" name="depname" class="form-control" placeholder="Enetr Department Name" required>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary px-5" style="">Add Service</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("navdep").classList.add("active");
+</script>
+

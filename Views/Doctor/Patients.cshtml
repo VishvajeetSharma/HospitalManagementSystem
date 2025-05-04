@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Patients";
+    Layout = "~/Views/Shared/Doctor_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Patients</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-border table-striped custom-table datatable mb-0">
+                        <thead>
+                            <tr>
+                                <th>Pt_Id</th>
+                                <th>Name</th>
+                                <th>DOB</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Aadhar Nu</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+                                    <tr>
+                                        <td>PT##@row["Pt_Id"]</td>
+                                        <td><img width="28" height="32" src="~/Content/img/patient/@row["Pt_Profile"]" class="rounded-circle m-r-5" alt=""> @row["Name"]</td>
+                                        <td>@row["DOB"]</td>
+                                        <td>@row["Phone"]</td>
+                                        <td>@row["Email_Id"]</td>
+                                        <td>@row["Gender"]</td>
+                                        <td>@row["Adhar"]</td>
+                                        <td>@row["Address"]</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    document.getElementById("navpatient").classList.add("active");
+</script>

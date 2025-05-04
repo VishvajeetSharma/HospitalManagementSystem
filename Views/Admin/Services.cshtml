@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Service";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-5 col-5">
+                <h4 class="page-title">Services</h4>
+            </div>
+            <div class="col-sm-7 col-7 text-right m-b-30">
+                <a href="/admin/addservices" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Add Service</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table mb-0 datatable">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Service Name</th>
+                                <th>Department Name</th>
+                                <th>Added on</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+
+                                    <tr>
+                                        <td>@row["Sr"]</td>
+                                        <td>@row["ServiceName"]</td>
+                                        <td>@row["DepName"]</td>
+                                        <td>@row["AddedOn"]</td>
+                                        <td> <a href="/admin/deleteservices?Sr=@row["Sr"]"> <button class="btn bg-danger px-3"><i class="fa fa-trash-o m-r-5"></i> DELETE</button> </a> </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.getElementById("navservices").classList.add("active");
+</script>

@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Add Appointment";
+    Layout = "~/Views/Shared/PatientLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content card my-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title text-left">Add Appointment</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form method="post" action="/patient/addappwdr">
+                    @if (ViewBag.table.Rows.Count > 0)
+                    {
+                        foreach (var row in ViewBag.table.Rows)
+                        {
+                            <div class="row mx-3 mt-1">
+                                <h4 class="fs-2">Patient Name: @row["Name"]</h4>
+                            </div>
+                            <div class="row mx-3 mb-1">
+                                <p class="staff-id fs-2">Patient ID: Pt##@row["Pt_Id"]</p>
+                            </div>
+                        }
+                    }
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="doctor">Department</label>
+                                <select class="form-control" name="department" required>
+                                    <option value="">---Select---</option>
+                                    @if (ViewBag.table1.Rows.Count > 0)
+                                    {
+                                        foreach (var row in ViewBag.table1.Rows)
+                                        {
+                                            <option value="@row["Sr"]">@row["DepName"]</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="date">Date:</label>
+                                <input type="date" name="date" class="form-control" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <input type="time" class="form-control" id="datetimepicker3" name="time" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="reason">Reason</label>
+                                <textarea cols="30" rows="2" class="form-control" name="reason" required placeholder="Enter Appointment Reason"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-t-20 text-center">
+                        <button type="submit" class="btn btn-primary submit-btn">Create Appointment</button>
+                    </div>
+                </form>      
+                            
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("ptdrapp").classList.add("active");
+</script>

@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "LabAppointment";
+    Layout = "~/Views/Shared/PatientLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Appointments for Lab Test</h4>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+                <a href="/Patient/addlabappointment" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Appointment</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table">
+                        <thead>
+                            <tr>
+                                <th>Test Id</th>
+                                <th>Test Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Report</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+                                    <tr>
+                                        <td>T##@row["T_Id"]</td>
+                                        <td>@row["ServiceName"]</td>
+                                        <td>@row["T_Date"]</td>
+                                        <td>@row["T_Time"]</td>
+                                        <td>
+                                            <span class="custom-badge fa-2x status-badge" data-status="@row["Status"]">@row["Status"]</span>
+                                        </td>
+                                        <td>
+                                            <a href="~/Content/testreport/@row["Test_Report"]" target="_blank"> <span class="custom-badge fa-2x status-blue">Show Report</span> </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.getElementById("ptlapp").classList.add("active");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusBadges = document.querySelectorAll(".status-badge");
+        statusBadges.forEach(badge => {
+            const status = badge.dataset.status.toLowerCase();
+
+            // Add class based on status value
+            if (status === "approved") {
+                badge.classList.add("badge-success");
+            } else if (status === "pending") {
+                badge.classList.add("badge-warning");
+            } else if (status === "completed") {
+                badge.classList.add("badge-secondary");
+            }
+        });
+    });
+</script>

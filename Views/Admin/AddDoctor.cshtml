@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "AddDoctor";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Add Doctor</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form method="post" action="/admin/adddr" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">Name: <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="phone">Phone: <span class="text-danger">*</span></label>
+                                <input class="form-control" type="tel" name="phone" placeholder="Phone Number" required maxlength="10">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">Email: <span class="text-danger">*</span></label>
+                                <input class="form-control" type="email" name="email" placeholder="Email Id" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="adhar">Adhar Number: <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" name="adhar" placeholder="Adhar Number" required maxlength="12">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group gender-select">
+                                <label for="gender" class="gen-label">Gender:</label>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" value="male" name="gender" class="form-check-input">Male
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" value="female" name="gender" class="form-check-input">Female
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="dob">Date of Birth:</label>
+                                <div class="cal-icon">
+                                    <input type="text" class="form-control datetimepicker" name="dob">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="add">Address: <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="add" placeholder="Full Address" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>User Image:</label>
+                                <div class="profile-upload">
+                                    <div class="upload-img">
+                                        <img alt="" src="~/Content/img/user.jpg">
+                                    </div>
+                                    <div class="upload-input">
+                                        <input type="file" class="form-control" name="pic">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="qualification">Qualification: <span class="text-danger">*</span></label>
+                                <select class="form-control" name="qualification" placeholder="Qualification" required>
+                                    <option>---Select---</option>
+                                    <option value="MBBS">MBBS</option>
+                                    <option value="MD (General Medicine)">MD (General Medicine)</option>
+                                    <option value="MD (Emergency Medicine)">MD (Emergency Medicine)</option>
+                                    <option value="MS (General Surgery)">MS (General Surgery)</option>
+                                    <option value="MD (Pathology)">MD (Pathology)</option>
+                                    <option value="MD (Internal Medicine)">MD (Internal Medicine)</option>
+                                    <option value="DM (Cardiology)">DM (Cardiology)</option>
+                                    <option value="MD (Pediatrics)">MD (Pediatrics)</option>
+                                    <option value="DNB (Pediatrics)">DNB (Pediatrics)</option>
+                                    <option value="MS (Orthopedics)">MS (Orthopedics)</option>
+                                    <option value="MS (ENT)">MS (ENT)</option>
+                                    <option value="DNB (ENT)">DNB (ENT)</option>
+                                    <option value="MS (Obstetrics & Gynecology)">MS (Obstetrics & Gynecology)</option>
+                                    <option value="MD (Obstetrics & Gynecology)">MD (Obstetrics & Gynecology)</option>
+                                    <option value="DNB (Ob-Gyn)">DNB (Ob-Gyn)</option>
+                                    <option value="DM (Medical Oncology)">DM (Medical Oncology)</option>
+                                    <option value="MCh (Surgical Oncology)">MCh (Surgical Oncology)</option>
+                                    <option value="MD (Dermatology)">MD (Dermatology)</option>
+                                    <option value="DNB (Dermatology)">DNB (Dermatology)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exp">Experiance: <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" name="exp" placeholder="Experiance in Years" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="adipartment">Assigned Department: <span class="text-danger">*</span></label>
+                                <select class="form-control" name="adipartment" required>
+                                    <option value="">--=Select---</option>
+                                    @if (ViewBag.table.Rows.Count > 0)
+                                    {
+                                        foreach (var row in ViewBag.table.Rows)
+                                        {
+                                            <option value="@row["Sr"]">@row["DepName"]</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="passwd">Password: <span class="text-danger">*</span></label>
+                                <input class="form-control" type="password" name="passwd" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="cpasswd">Confirm Password: <span class="text-danger">*</span></label>
+                                <input class="form-control" type="password" name="cpasswd" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-t-20 text-center">
+                        <button class="btn btn-primary submit-btn">Add Doctor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("navdoctor").classList.add("active");
+</script>

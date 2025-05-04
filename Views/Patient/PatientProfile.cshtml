@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "PatientProfile";
+    Layout = "~/Views/Shared/PatientLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-7 col-6">
+                <h4 class="page-title">My Profile</h4>
+            </div>
+
+            @*<div class="col-sm-5 col-6 text-right m-b-30">
+                <a href="edit-profile.html" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Edit Profile</a>
+            </div>*@
+        </div>
+        @if (ViewBag.table.Rows.Count > 0)
+        {
+            foreach (var row in ViewBag.table.Rows)
+            { 
+                <div class="card-box profile-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="profile-view">
+                                <div class="profile-img-wrap">
+                                    <div class="profile-img">
+                                        <a href="#"><img class="avatar" src="~/Content/img/patient/@row["Pt_Profile"]" alt="User Image"></a>
+                                    </div>
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="profile-info-left">
+                                                <h3 class="user-name mt-5 mb-0">@row["Name"]</h3>
+                                                <div class="staff-id">Patient ID : Pt##@row["Pt_Id"]</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Father/Hasband Name:</span>
+                                                    <span class="text">@row["Fname"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Phone:</span>
+                                                    <span class="text">@row["Phone"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Email:</span>
+                                                    <span class="text">@row["Email_Id"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">DOB:</span>
+                                                    <span class="text">@row["DOB"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Address:</span>
+                                                    <span class="text">@row["Address"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Gender:</span>
+                                                    <span class="text">@row["Gender"]</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-sm-6">
+                            <h4 style="font-weight: bold;" class="px-4">Appointments:</h4>
+                            <div class="personal-info profile-view px-5">
+                                <table cellpadding="10" style="width: 100%;">
+                                    <tr>
+                                        <th>Next Appointment:</th>
+                                        @if (ViewBag.table2.Rows.Count > 0)
+                                        {
+                                            foreach (var row2 in ViewBag.table2.Rows)
+                                            {
+                                                <td>@row2[23] | @row2["App_Date"] | @row2["App_Time"]</td>
+                                            }
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th>Last Appointment:</th>
+                                        @if (ViewBag.table1.Rows.Count > 0)
+                                        {
+                                            foreach (var row1 in ViewBag.table1.Rows)
+                                            {
+                                                <td>@row1[23] | @row1["App_Date"] | @row1["App_Time"]</td>
+                                            }
+                                        }
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 style="font-weight: bold;" class="px-3">Lab Test Appointments:</h4>
+                            <div class="personal-info profile-view px-5">
+                                <table cellpadding="10" style="width: 100%;">
+                                    <tr>
+                                        <th>Next Appointment:</th>
+                                        @if (ViewBag.table4.Rows.Count > 0)
+                                        {
+                                            foreach (var row4 in ViewBag.table4.Rows)
+                                            {
+                                                <td>@row4["T_Date"] | @row4["T_Time"]</td>
+                                            }
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th>Last Appointment:</th>
+                                        @if (ViewBag.table3.Rows.Count > 0)
+                                        {
+                                            foreach (var row3 in ViewBag.table3.Rows)
+                                            {
+                                                <td>@row3["T_Date"] | @row3["T_Time"]</td>
+                                            }
+                                        }
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script>
+    document.getElementById("ptprofile").classList.add("active");
+</script>

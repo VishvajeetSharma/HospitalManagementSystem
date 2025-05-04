@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Patients";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Patients</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-border table-striped custom-table datatable mb-0">
+                        <thead>
+                            <tr>
+                                <th>Pt_Id</th>
+                                <th>Name</th>
+                                <th>DOB</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Aadhar Nu</th>
+                                <th>Address</th>
+                                <th>Password</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+                                    <tr>
+                                        <td>PT##@row["Pt_Id"]</td>
+                                        <td><img width="28" height="32" src="~/Content/img/patient/@row["Pt_Profile"]" class="rounded-circle m-r-5" alt=""> @row["Name"]</td>
+                                        <td>@row["DOB"]</td>
+                                        <td>@row["Phone"]</td>
+                                        <td>@row["Email_Id"]</td>
+                                        <td>@row["Gender"]</td>
+                                        <td>@row["Adhar"]</td>
+                                        <td>@row["Address"]</td>
+                                        <td>@row["Password"]</td>
+                                        <td> <a href="/admin/deletept?Pt_Id=@row["Pt_Id"]"> <button class="btn bg-danger px-3"><i class="fa fa-trash-o m-r-5"></i> DELETE</button> </a> </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("navpatient").classList.add("active");
+</script>
+

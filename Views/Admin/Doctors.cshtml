@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Doctors";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-5 col-5">
+                <h4 class="page-title">Doctors</h4>
+            </div>
+            <div class="col-sm-7 col-7 text-right m-b-30">
+                <a href="/admin/adddoctor" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Add Doctor</a>
+            </div>
+        </div>
+        @if (ViewBag.table.Rows.Count > 0)
+        {
+            foreach (var row in ViewBag.table.Rows)
+            {
+                <div class="card-box mb-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="profile-view">
+                                <div class="profile-img-wrap">
+                                    <div class="profile-img">
+                                        <img class="avatar" src="~/Content/img/doctor/@row["User_Image"]" alt="Dr's Img">
+                                    </div>
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="profile-info-left my-1">
+                                                <h3 class="user-name">Dr. @row["Name"]</h3>
+                                                <div class="staff-id">ID: DR##@row["Dr_Id"]</div>
+                                                <div class="staff-id">Department: @row[15]</div>
+                                                <div class="staff-id">Phone: @row["Phone"]</div>
+                                                <div class="mt-1"><a href="/admin/deletedoctor?Sr=@row["Dr_Id"]"> <button class="btn bg-danger px-3"><i class="fa fa-trash-o m-r-5"></i> DELETE</button> </a></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Email: </span>
+                                                    <span class="text">@row["Email"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Adhar Nu.: </span>
+                                                    <span class="text">@row["Adhar"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">DOB: </span>
+                                                    <span class="text">@row["DOB"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Address: </span>
+                                                    <span class="text">@row["Address"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Gender: </span>
+                                                    <span class="text">@row["Gender"]</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Qualification: </span>
+                                                    <span class="text">@row["Qualification"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Experience: </span>
+                                                    <span class="text">@row["Experience"] Years</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Department: </span>
+                                                    <span class="text">@row[15]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Submitted At: </span>
+                                                    <span class="text">@row["Submitted_At"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Password: </span>
+                                                    <span class="text">@row["Password"]</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script>
+    document.getElementById("navdoctor").classList.add("active");
+</script>

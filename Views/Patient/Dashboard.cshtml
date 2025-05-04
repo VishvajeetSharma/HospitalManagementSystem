@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "MediPlus Doctor Dashboard";
+    Layout = "~/Views/Shared/Doctor_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-7 col-6">
+                <h4 class="page-title">My Profile</h4>
+            </div>
+        </div>
+        @if (ViewBag.table.Rows.Count > 0)
+        {
+            foreach (var row in ViewBag.table.Rows)
+            { 
+                <div class="card-box profile-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="profile-view">
+                                <div class="profile-img-wrap">
+                                    <div class="profile-img">
+                                        <a href="#"><img class="avatar" src="~/Content/img/patient/@row["Pt_Profile"]" alt="User Image"></a>
+                                    </div>
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="profile-info-left">
+                                                <h3 class="user-name mt-5 mb-0">@row["Name"]</h3>
+                                                <div class="staff-id">Patient ID : Pt##@row["Pt_Id"]</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Father/Hasband Name:</span>
+                                                    <span class="text">@row["Fname"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Phone:</span>
+                                                    <span class="text">@row["Phone"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Email:</span>
+                                                    <span class="text">@row["Email_Id"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">DOB:</span>
+                                                    <span class="text">@row["DOB"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Address:</span>
+                                                    <span class="text">@row["Address"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Gender:</span>
+                                                    <span class="text">@row["Gender"]</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="row pt-5 px-5">
+                        <h4 style="font-weight: bold;">Medical Details:</h4>
+                        <div class="col-sm-12">
+                            <div class="personal-info profile-view">
+                                <table cellpadding="10" style="width: 100%;">
+                                    <tr>
+                                        <th>Blood Group: </th>
+                                        <td>AB+</td>
+                                        <th>Allergies: </th>
+                                        <td>Dust, Smook</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Current Medications: </th>
+                                        <td>MetFormin, Lisinoprill</td>
+                                        <th>Past Medical History: </th>
+                                        <td>Diabetes, Hypertension</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Chronoc Conditions: </th>
+                                        <td>Diabetes, High Blood Presure</td>
+                                        <th></th>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="row pt-5">
+                        <div class="col-sm-6">
+                            <h4 style="font-weight: bold;" class="px-4">Appointments:</h4>
+                            <div class="personal-info profile-view px-5">
+                                <table cellpadding="10" style="width: 100%;">
+                                    <tr>
+                                        <th>Next Appointment:</th>
+                                        <td>Dr. Amit | 20-12-1234 | 12:30</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Appointment:</th>
+                                        <td>Dr. Amit | 10-12-1234 | 12:30</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 style="font-weight: bold;" class="px-3">Lab Test Appointments:</h4>
+                            <div class="personal-info profile-view px-5">
+                                <table cellpadding="10" style="width: 100%;">
+                                    <tr>
+                                        <th>Next Appointment:</th>
+                                        <td>20-12-1234 | 12:30</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Appointment:</th>
+                                        <td>10-12-1234 | 12:30</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script>
+    document.getElementById("ptdashboard").classList.add("active");
+</script>

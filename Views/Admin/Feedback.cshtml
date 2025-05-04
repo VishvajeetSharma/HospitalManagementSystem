@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-5 col-5">
+                <h4 class="page-title">Patient's Feedback</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-border table-striped custom-table datatable mb-0">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Message</th>
+                                <th>Submitted At</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+
+                                    <tr>
+                                        <td>@row["Sr"]</td>
+                                        <td><img src="~/Content/img/patient/@row["Pt_Profile"]" height="55" width="55" alt="Patient's Image" style="border-radius: 50%;" /></td>
+                                        <td>@row["Name"]</td>
+                                        <td>@row["Phone"]</td>
+                                        <td>@row["Address"]</td>
+                                        <td>@row["Message"]</td>
+                                        <td>@row["Submitted_At"]</td>
+                                        <td> <a href="/admin/deletefeedback?Sr=@row["Sr"]"> <button class="btn bg-danger px-3"><i class="fa fa-trash-o m-r-5"></i> DELETE</button> </a> </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("navfeedback").classList.add("active");
+</script>

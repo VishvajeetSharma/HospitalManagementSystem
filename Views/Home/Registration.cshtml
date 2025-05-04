@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<style>
+    label{
+        width: 100%;
+        color: black;
+        font-size: 14px;
+    }
+</style>
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Registeration</h2>
+                    <ul class="bread-list">
+                        <li><a href="/home/index">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li class="active">Registration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Start Registration -->
+<section class="contact-us section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title wow fadeInUp"  data-wow-delay="0.1s">
+                <h2>Get Started on Your Journey to Better Health</h2>
+                <img src="~/Content/img/section-img.png" alt="#">
+                <p>Register with us quickly and easily to access personalized care, appointments, and health records. Your wellness journey begins here, with just a few clicks.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="inner">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact-us-left">
+                        <div class="contact-us-form">
+                            <h2>Register YourSelf</h2>
+                            <!-- Form -->
+                            <form class="form" method="post" action="/home/saveregistrationdata" enctype="multipart/form-data" id="myForm">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="name">Name: <span class="text-danger">*</span></label>
+                                            <input type="text" name="name" placeholder="Full Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="fname">Father's/Husband's Name: <span class="text-danger">*</span></label>
+                                            <input type="text" name="fname" placeholder="Father's/Husband's Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="dob">Bate of Birth: <span class="text-danger">*</span></label>
+                                            <input type="date" name="dob" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="gender">Gender: <span class="text-danger">*</span></label>
+                                            <select name="gender" required>
+                                                <option value="">---Select---</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="email">Email:</label>
+                                            <input type="email" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="phone">Phone: <span class="text-danger">*</span></label>
+                                            <input type="text" name="phone" placeholder="Phone" required maxlength="10">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="adhar">Adhar Number:</label>
+                                            <input type="text" name="adhar" placeholder="Adhar Number" maxlength="12">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <label for="add">Address: <span class="text-danger">*</span></label>
+                                            <textarea name="add" placeholder="Your Address" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="maritalstatus">Marital Status:</label>
+                                            <select name="maritalstatus">
+                                                <option value="">---Select---</option>
+                                                <option value="male">Married</option>
+                                                <option value="female">Unmarried</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div>
+                                            <label for="pic">Image:<span class="text-danger">*</span></label>
+                                            <input type="file" name="pic" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="passwd">Password:<span class="text-danger">*</span> </label>
+                                            <input type="password" name="passwd" placeholder="password" required id="password" pattern="^(?=.[A-Za-z])(?=.\d)(?=.[^A-Za-z\d])[A-Za-z\d!#$%^&()_+\-=👦👦{};':&quot;\\|,.<>\/?]{8,}$" title="Password must be at least 8 characters long and include a letter, a number, and a symbol.">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="cpasswd">Confirm Password: <span class="text-danger">*</span></label>
+                                            <input type="password" name="cpasswd" placeholder="Confirm Password" required id="confirmPassword" title="Password must be same as password.">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p id="message" style="color: red;"></p>
+                                    </div>
+                                    <div class="col-lg-4 mt-lg-5">
+                                        <div class="form-group login-btn">
+                                            <button class="btn" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/ End Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Registration -->
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Stop form from submitting
+
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        let message = document.getElementById("message");
+
+        if (password !== confirmPassword) {
+            message.textContent = "Passwords do not match!";
+        } else {
+            message.textContent = "";
+            this.submit();   //Manually Submit the formn
+        }
+    });
+</script>

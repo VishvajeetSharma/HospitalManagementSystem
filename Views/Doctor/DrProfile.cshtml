@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "Dr Profile";
+    Layout = "~/Views/Shared/Doctor_Layout.cshtml";
+}
+
+
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-7 col-6">
+                <h4 class="page-title">My Profile</h4>
+            </div>
+        </div>
+        @if (ViewBag.table.Rows.Count > 0)
+        {
+            foreach (var row in ViewBag.table.Rows)
+            {
+                <div class="card-box profile-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="profile-view">
+                                <div class="profile-img-wrap">
+                                    <div class="profile-img">
+                                        <a href="#"><img class="avatar" src="~/Content/img/doctor/@row["User_Image"]" alt="User Image"></a>
+                                    </div>
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="profile-info-left">
+                                                <h3 class="user-name mt-5 mb-0">Dr @row["Name"]</h3>
+                                                <div class="staff-id">Doctor ID : Dr##@row["Dr_Id"]</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Phone:</span>
+                                                    <span class="text">@row["Phone"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Email:</span>
+                                                    <span class="text">@row["Email"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Adhar Nu:</span>
+                                                    <span class="text">@row["Adhar"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">DOB:</span>
+                                                    <span class="text">@row["DOB"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Gender:</span>
+                                                    <span class="text">@row["Gender"]</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Address:</span>
+                                                    <span class="text">@row["Address"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Qualification:</span>
+                                                    <span class="text">@row["Qualification"]</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Experience:</span>
+                                                    <span class="text">@row["Experience"] Years</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Department:</span>
+                                                    <span class="text">@row["DepName"]</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+
+    <div class="row mt-3">
+        <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title d-inline-block">Total Upcoming Appointments</h4> <a href="/doctor/appointment" class="btn btn-primary float-right">View all</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead class="d-none">
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Timing</th>
+                                    <th class="text-right">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.table1.Rows.Count > 0)
+                                {
+                                    foreach (var row in ViewBag.table1.Rows)
+                                    {
+                                        <tr>
+                                            <td style="min-width: 200px;">
+                                                <h2>Pt##@row[9] | @row[10] <span>@row[17]</span></h2>
+                                            </td>
+                                            <td>
+                                                <h5 class="time-title p-0">Timing</h5>
+                                                <p>@row[4] @row[5]</p>
+                                            </td>
+                                            <td class="text-right">
+                                                <span class="custom-badge mt-2 fa-2x status-badge" data-status="@row["Status"]">@row["Status"]</span>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="card member-panel">
+                <div class="card-header bg-white">
+                    <h4 class="card-title mb-0">Patients</h4>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.table2.Rows.Count > 0)
+                    {
+                        foreach (var row in ViewBag.table2.Rows)
+                        {
+                            <ul class="contact-list">
+                                <li>
+                                    <div class="contact-cont">
+                                        <div class="float-left user-img m-r-10">
+                                            <img src="~/Content/img/patient/@row["Pt_Profile"]" alt="Dr Image" class="w-40 rounded-circle">
+                                        </div>
+                                        <div class="contact-info">
+                                            <span class="contact-name text-ellipsis">Pt##@row["Pt_Id"] | @row["Name"]</span>
+                                            <span class="contact-date">@row["Phone"]</span>
+                                            <span class="contact-date">@row["Email_Id"]</span>
+                                            <span class="contact-date">@row["Address"]</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        }
+                    }
+                </div>
+                <div class="card-footer text-center bg-white">
+                    <a href="/doctor/patients" class="text-muted">View all Patients</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    document.getElementById("navprofile").classList.add("active");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusBadges = document.querySelectorAll(".status-badge");
+        statusBadges.forEach(badge => {
+            const status = badge.dataset.status.toLowerCase();
+
+            // Add class based on status value
+            if (status === "approved") {
+                badge.classList.add("badge-success");
+            } else if (status === "pending") {
+                badge.classList.add("badge-warning");
+            } else if (status === "completed") {
+                badge.classList.add("badge-secondary");
+            }
+        });
+    });
+</script>

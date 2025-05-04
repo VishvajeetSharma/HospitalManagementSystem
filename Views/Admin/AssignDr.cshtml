@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/all.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <title>Assign Doctor</title>
+    <!-- Favicon -->
+    <link rel="icon" href="~/Content/img/favicon.png">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row m-5">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded">
+                <form action="/admin/savedr" method="post">
+                    <div class="mb-3">
+                        @if (ViewBag.table.Rows.Count > 0)
+                        {
+                            foreach (var row in ViewBag.table.Rows)
+                            {
+                                <input type="hidden" class="form-control" value="@row["Ap_Id"]" name="Ap_id" readonly/>
+                            }
+                        }
+                        <label for="assigndr" class="form-label">Assign Doctor:</label>
+                        <select class="form-control" name="assigndr">
+                            <option value="">--Select--</option>
+                            @if (ViewBag.table.Rows.Count > 0)
+                            {
+                                foreach (var row in ViewBag.table.Rows)
+                                {
+                                    <option value="@row[9]">@row[10]</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</body>
+</html>
